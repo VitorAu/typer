@@ -22,12 +22,13 @@ export function TyperGame() {
   const userRepository = new UserRepository();
   const inputRef = useRef<HTMLInputElement>(null);
   const countDown = ["3", "2", "1", "GO"];
+  const wordAmount = 20;
   const { user, setUser } = useContext(UserContext);
 
   async function fetchWords() {
     try {
       const response = await fetch(
-        "https://random-word-api.vercel.app/api?words=15"
+        `https://random-word-api.vercel.app/api?words=${wordAmount}`
       );
       const data = await response.json();
       setWords(data);
@@ -41,7 +42,7 @@ export function TyperGame() {
 
     setIsLoading(true);
     try {
-      const points = (20 / time) * 60 * 100000;
+      const points = (wordAmount / time) * 60 * 100000;
       setIsPoints(points);
       const data: RoundType = {
         score: points,
