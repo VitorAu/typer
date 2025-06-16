@@ -18,6 +18,7 @@ public class JdbcRoundRepository implements RoundRepository {
     this.jdbcTemplate = jdbcTemplate;
   }
 
+  @Override
   public Round create(Integer userId, Round round) {
     round.setCreatedAt(LocalDateTime.now());
     round.setUpdatedAt(LocalDateTime.now());
@@ -39,6 +40,7 @@ public class JdbcRoundRepository implements RoundRepository {
     }
   }
 
+  @Override
   public List<Round> get(Integer userId) {
     String sql = "select * from round inner join user_round on round.id = user_round.round_id where user_round.user_id = ? order by round.created_at";
 

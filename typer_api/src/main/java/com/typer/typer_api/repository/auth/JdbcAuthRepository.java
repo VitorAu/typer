@@ -15,6 +15,7 @@ public class JdbcAuthRepository implements AuthRepository {
     this.jdbcTemplate = jdbcTemplate;
   }
 
+  @Override
   public User login(String email, String password) {
     String sql = "select * from user where email = ? and password = ?";
 
