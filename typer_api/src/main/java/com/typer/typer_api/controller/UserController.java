@@ -26,22 +26,22 @@ public class UserController {
 
   @PostMapping()
   public User create(@RequestBody User user) {
-    return userService.createUser(user);
+    return userService.create(user);
   }
 
   @GetMapping("/{id}")
   public User get(@PathVariable Integer id) {
-    return userService.getUser(id);
+    return userService.get(id);
   }
 
   @GetMapping
   public List<User> getAll() {
-    return userService.getAllUsers();
+    return userService.getAll();
   }
 
 
   @PutMapping("/{id}")
   public User put(@PathVariable Integer id, @RequestBody Integer highScore) {
-    return userService.updateUserHighscore(id, highScore);
+    return userService.update(id, highScore);
   }
 }

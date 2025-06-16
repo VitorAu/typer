@@ -24,7 +24,7 @@ public class AuthController {
   @CrossOrigin()
   @PostMapping("/login")
   public AuthResponse login(@RequestBody AuthRequest authRequest) {
-    User user = authService.authUser(authRequest.getEmail(), authRequest.getPassword());
+    User user = authService.login(authRequest.getEmail(), authRequest.getPassword());
     return new AuthResponse(user.getId());
   }
 }

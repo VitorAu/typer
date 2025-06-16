@@ -25,11 +25,11 @@ public class RoundController {
 
   @PostMapping("/{id}")
   public Round create(@PathVariable Integer id,  @RequestBody Round round) {
-    return roundService.createRound(id, round);
+    return roundService.create(id, round);
   }
 
   @GetMapping("/{id}")
   public List<Round> get(@PathVariable Integer id) {
-    return roundService.getRound(id);
+    return roundService.get(id);
   }
 }
